@@ -1,0 +1,63 @@
+.no-border {
+  border: 0px solid green !important;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.r-border {
+  border-radius: 15px !important;
+  background-color: white;
+}
+
+.red {
+  color: rgb(223, 40, 40) !important;
+}
+
+.white {
+  color: white !important;
+}
+
+.font-size {
+  font-size: 25px !important;
+}
+
+.bg-red {
+  background-color: rgb(226, 59, 59);
+}
+
+.bg-gray {
+  background-color: rgb(234, 229, 240);
+}
+
+.shadow {
+  -webkit-box-shadow: 4px 4px 20px 5px #2B2A2B;
+  box-shadow: 4px 4px 20px 5px #2B2A2B;
+}
+
+.fs-8 {
+  font-size: 8px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  display: inline;
+}
+
+ul a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 0 90px;
+}
+
+.location a {
+  text-decoration: none;
+}
