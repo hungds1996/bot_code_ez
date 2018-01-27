@@ -45,10 +45,12 @@ client = MongoClient('mongodb://admin:admin@ds137826.mlab.com:37826/ezgame')
 db = client.get_default_database()
 
 bot_data = db.Steam_guard_code
+chrome_options = Options()
+chrome_options.binary_location = GOOGLE_CHROME_BIN
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 def back_up(target):
-    client = MongoClient('mongodb://admin:admin@ds137826.mlab.com:37826/ezgame')
-    db = client.get_default_database()
-    bot_data = db.Steam_guard_code
     bot_list = bot_data.find()
 
     for bot in list(bot_list):
