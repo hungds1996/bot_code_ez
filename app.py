@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for
 from pymongo import *
 from bot import Steam_guard_code
+from backup_code import *
+
 app = Flask(__name__)
 
 client = MongoClient('mongodb://admin:admin@ds137826.mlab.com:37826/ezgame')
@@ -19,6 +21,7 @@ def update(id):
     new_code = picked_bot['code']
     new_code.pop(0)
     bot_data.update_one({'bot_id':id}, {"$set": {'code':new_code}}, upsert=False)
+    back_up(picked_bot['bot_id'])
     return redirect(url_for('bot'))
 
 if __name__ == '__main__':
