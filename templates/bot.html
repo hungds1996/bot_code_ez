@@ -9,6 +9,7 @@
     </script>
   </head>
   <body>
+    <a href="{{ url_for('add_bot') }}">Add Bot</a>
     <table>
       <thead>
         <th>BOT</th>
@@ -23,6 +24,7 @@
           <td>{{ bot.bot_pass }}</td>
           <td> <input type="text" name="" value="{{ bot.code[0] }}">( {{ bot.code | length }} )</td>
           <td> <a href="{{ url_for('update', id = bot.bot_id) }}">new</a> </td>
+
         </tr>
         {% endfor %}
       </tbody>

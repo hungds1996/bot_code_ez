@@ -1,8 +1,11 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import *
 from pymongo import *
 from bot import Steam_guard_code
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'asdasd asas asqafkigk'
+
 
 client = MongoClient('mongodb://admin:admin@ds137826.mlab.com:37826/ezgame')
 db = client.get_default_database()
@@ -22,5 +25,27 @@ def update(id):
     bot_data.update_one({'bot_id':id}, {"$set": {'code':new_code}}, upsert=False)
     return redirect(url_for('bot'))
 
+@app.route('/add_bot', methods = ['GET', 'POST'])
+def add_bot():
+    if request.method == 'GET':
+        return render_template('new_bot.html')
+    if request.method == 'POST':
+        form = request.form
+        bot_id = form['bot_id']
+        bot_pass = form['bot_pass']
+        code1 = form['code1']
+        code2 = form['code2']
+        code3 = form['code3']
+        code4 = form['code4']
+        code5 = form['code5']
+        code6 = form['code6']
+
+        new_bot = {
+            'bot_id' : bot_id,
+            'bot_pass' : bot_pass,
+            'code' : [code1, code2, code3, code4, code5, code6]
+        }
+        bot_data.insert_one(new_bot)
+        return redirect(url_for('bot'))
 if __name__ == '__main__':
   app.run(debug=True)
