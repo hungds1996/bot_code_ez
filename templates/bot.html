@@ -10,7 +10,7 @@
   </head>
   <body>
     <a href="{{ url_for('add_bot') }}">Add Bot</a>
-    <table>
+    <table border="1">
       <thead>
         <th>BOT</th>
         <th>PASS</th>
@@ -20,6 +20,7 @@
       <tbody>
         {% for bot in bots %}
         <tr id="{{ bot.bot_id }}">
+          <td> <a href="{{ url_for('delete', id = bot.bot_id) }}">del</a> </td>
           <td>{{ bot.bot_id }}</td>
           <td>{{ bot.bot_pass }}</td>
           <td> <input type="text" name="" value="{{ bot.code[0] }}">( {{ bot.code | length }} )</td>

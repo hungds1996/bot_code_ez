@@ -47,5 +47,19 @@ def add_bot():
         }
         bot_data.insert_one(new_bot)
         return redirect(url_for('bot'))
+
+@app.route('/delete/<id>', methods = ['GET', 'POST'])
+def delete(id):
+    if request.method == 'GET':
+        return render_template('confirm.html')
+    if request.method == 'POST':
+        bot_list = bot_data.find()
+        picked_bot = bot_data.find_one({"bot_id": id})
+        if picked_bot is None:
+            return "not found"
+        else:
+            bot_data.delete_one({"bot_id": id})
+            return redirect(url_for('bot'))
+
 if __name__ == '__main__':
   app.run(debug=True)
