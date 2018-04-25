@@ -23,7 +23,6 @@
           <td> <a href="{{ url_for('delete', id = bot.bot_id) }}">del</a> </td>
           <td>{{ bot.bot_id }}</td>
           <td>{{ bot.bot_pass }}</td>
-          <td> {{ bot.code | length }} </td>
           <td> <a href="{{ url_for('update', id = bot.bot_id) }}">new</a> </td>
 
         </tr>
@@ -33,4 +32,4 @@
 
   </body>
 </html>
-<!-- <input type="text" name="" value="{{ bot.code[0] }}"> -->
+
