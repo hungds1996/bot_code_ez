@@ -33,17 +33,12 @@ def add_bot():
         form = request.form
         bot_id = form['bot_id']
         bot_pass = form['bot_pass']
-        code1 = form['code1']
-        code2 = form['code2']
-        code3 = form['code3']
-        code4 = form['code4']
-        code5 = form['code5']
-        code6 = form['code6']
+        codes = [""] * 30
 
         new_bot = {
             'bot_id' : bot_id,
             'bot_pass' : bot_pass,
-            'code' : [code1, code2, code3, code4, code5, code6]
+            'code' : codes
         }
         bot_data.insert_one(new_bot)
         return redirect(url_for('bot'))
